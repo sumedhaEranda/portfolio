@@ -50,13 +50,42 @@ body {
     position: fixed;
     top: 0;
     width: 100%;
-    background: rgba(10, 14, 39, 0.95);
+    background: rgba(10, 14, 39, 0.95) !important;
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border-color);
     box-shadow: var(--shadow-sm);
     z-index: 1000;
     transition: all 0.3s ease;
+    padding: 1rem 0;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-white) !important;
+    letter-spacing: 0.5px;
+}
+
+.navbar-nav .nav-link {
+    color: var(--text-light) !important;
+    font-weight: 500;
+    font-size: 0.95rem;
+    padding: 0.5rem 1rem !important;
+    transition: color 0.2s ease;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+    color: var(--accent-color) !important;
+}
+
+.navbar-toggler {
+    border-color: var(--accent-color);
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 188, 212, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
 
 .navbar .container {
@@ -347,26 +376,42 @@ body {
 }
 
 .btn-primary {
-    background: var(--accent-color);
-    color: var(--bg-dark);
+    background: var(--accent-color) !important;
+    color: var(--bg-dark) !important;
+    border-color: var(--accent-color) !important;
     box-shadow: var(--shadow-md);
 }
 
 .btn-primary:hover {
-    background: var(--primary-light);
+    background: var(--primary-light) !important;
+    border-color: var(--primary-light) !important;
     transform: translateY(-2px);
     box-shadow: var(--shadow-lg);
 }
 
-.btn-secondary {
-    background: transparent;
-    color: var(--accent-color);
-    border-color: var(--accent-color);
+.btn-outline-light {
+    background: transparent !important;
+    color: var(--text-white) !important;
+    border-color: rgba(255, 255, 255, 0.3) !important;
 }
 
-.btn-secondary:hover {
-    background: rgba(0, 188, 212, 0.1);
-    border-color: var(--primary-light);
+.btn-outline-light:hover {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-color: var(--accent-color) !important;
+    color: var(--accent-color) !important;
+    transform: translateY(-2px);
+}
+
+.btn-outline-secondary {
+    background: transparent !important;
+    color: var(--text-light) !important;
+    border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+.btn-outline-secondary:hover {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border-color: var(--accent-color) !important;
+    color: var(--accent-color) !important;
     transform: translateY(-2px);
 }
 
@@ -774,30 +819,14 @@ section {
     background: var(--bg-darker);
 }
 
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 2rem;
-    width: 100%;
-}
-
-@media (max-width: 768px) {
-    .projects-grid {
-        grid-template-columns: 1fr;
-    }
-}
+/* Projects grid now uses Bootstrap row/col */
 
 /* Skills Section */
 .skills {
     background: var(--bg-dark);
 }
 
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    width: 100%;
-}
+/* Skills grid now uses Bootstrap row/col */
 
 .skill-category {
     background: rgba(255, 255, 255, 0.03);
@@ -934,11 +963,7 @@ section {
     background: var(--bg-dark);
 }
 
-.facts-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-}
+/* Facts grid now uses Bootstrap row/col */
 
 .fact-card {
     background: rgba(0, 188, 212, 0.1);
@@ -993,11 +1018,7 @@ section {
     background: var(--bg-darker);
 }
 
-.achievements-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-}
+/* Achievements grid now uses Bootstrap row/col */
 
 .achievement-item {
     background: rgba(255, 255, 255, 0.03);
@@ -1069,12 +1090,7 @@ section {
     margin: 0 auto;
 }
 
-.contact-info {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-bottom: 3rem;
-}
+/* Contact info now uses Bootstrap row/col */
 
 .contact-info .contact-item {
     min-width: 0;
