@@ -1,25 +1,60 @@
-// Bootstrap handles mobile navigation automatically
-// Active navigation link highlighting
-
-// Smooth scrolling for navigation links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            const offsetTop = target.offsetTop - 80; // Account for fixed navbar
-            window.scrollTo({
-                top: offsetTop,
-                behavior: 'smooth'
-            });
-            // Close mobile menu if open
-            const navbarCollapse = document.querySelector('.navbar-collapse');
-            if (navbarCollapse.classList.contains('show')) {
-                const bsCollapse = new bootstrap.Collapse(navbarCollapse);
+// Smooth scrolling for navigation links and close mobile menu
+document.addEventListener('DOMContentLoaded', function() {
+    const navLinks = document.querySelectorAll('.navbar-nav .nav-link, .navbar-brand');
+    const navbarCollapse = document.querySelector('#navbarNav');
+    const navbarToggler = document.querySelector('.navbar-toggler');
+    
+    function closeMobileMenu() {
+        if (navbarCollapse && navbarCollapse.classList.contains('show')) {
+            // Use Bootstrap's collapse API to close the menu
+            const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
+            if (bsCollapse) {
                 bsCollapse.hide();
+            } else {
+                // Create new instance if one doesn't exist
+                const newCollapse = new bootstrap.Collapse(navbarCollapse, {
+                    toggle: false
+                });
+                newCollapse.hide();
+            }
+            // Update aria-expanded on toggler button
+            if (navbarToggler) {
+                navbarToggler.setAttribute('aria-expanded', 'false');
             }
         }
+    }
+    
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            
+            // Only handle anchor links
+            if (href && href.startsWith('#')) {
+                e.preventDefault();
+                
+                // Close mobile menu immediately
+                closeMobileMenu();
+                
+                const target = document.querySelector(href);
+                if (target) {
+                    const offsetTop = target.offsetTop - 80; // Account for fixed navbar
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            }
+        });
     });
+    
+    // Listen for Bootstrap collapse events to ensure menu closes
+    if (navbarCollapse) {
+        navbarCollapse.addEventListener('hidden.bs.collapse', function() {
+            if (navbarToggler) {
+                navbarToggler.setAttribute('aria-expanded', 'false');
+            }
+        });
+    }
 });
 
 // Navbar background on scroll
@@ -66,7 +101,7 @@ document.querySelectorAll('section, .project-card-large, .skill-category, .educa
 
 // Active navigation link highlighting
 const sections = document.querySelectorAll('section[id]');
-const navLinks = document.querySelectorAll('.nav-menu a');
+const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
 
 function updateActiveNav() {
     let current = '';
@@ -92,10 +127,6 @@ function updateActiveNav() {
             link.classList.add('active');
         }
     });
-}
-
-// Update active nav on page load
-window.addEventListener('load', updateActiveNav);
 }
 
 window.addEventListener('scroll', updateActiveNav);
