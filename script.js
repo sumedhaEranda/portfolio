@@ -92,10 +92,21 @@ const observer = new IntersectionObserver((entries) => {
 }, observerOptions);
 
 // Observe all sections and cards
-document.querySelectorAll('section, .project-card-large, .skill-category, .education-item, .achievement-item').forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(30px)';
-    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+// document.querySelectorAll(
+//     'section, .project-card-large, .skill-category, .education-item, .achievement-item'
+// ).forEach(el => {
+//     el.style.opacity = '0';
+//     el.style.transform = 'translateY(30px)';
+//     el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+//     observer.observe(el);
+// });
+
+document.querySelectorAll(
+    '.project-card-large, .skill-category, .education-item, .achievement-item'
+).forEach(el => {
+    el.style.opacity = "0";
+    el.style.transform = "translateY(30px)";
+    el.style.transition = "opacity .6s ease, transform .6s ease";
     observer.observe(el);
 });
 
