@@ -20,7 +20,9 @@
     --shadow-md: 0 8px 20px rgba(0, 0, 0, 0.5);
     --shadow-lg: 0 12px 30px rgba(0, 0, 0, 0.6);
 }
-
+html {
+    scroll-behavior: smooth;
+}
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     line-height: 1.7;
@@ -57,11 +59,11 @@ body {
     box-shadow: var(--shadow-sm);
     z-index: 1000;
     transition: all 0.3s ease;
-    padding: 1rem 0;
+    padding: 0.45rem 0;   /* Reduced from 1rem */
 }
 
 .navbar-brand {
-    font-size: 1.5rem;
+    font-size: 1.35rem;   /* Reduced from 1.5rem */
     font-weight: 700;
     color: var(--text-white) !important;
     letter-spacing: 0.5px;
@@ -70,8 +72,8 @@ body {
 .navbar-nav .nav-link {
     color: var(--text-light) !important;
     font-weight: 500;
-    font-size: 0.95rem;
-    padding: 0.5rem 1rem !important;
+    font-size: 0.9rem;
+    padding: 0.35rem 0.8rem !important;  /* Reduced */
     transition: color 0.2s ease;
 }
 
@@ -82,6 +84,7 @@ body {
 
 .navbar-toggler {
     border-color: var(--accent-color);
+    padding: 0.2rem 0.4rem;
 }
 
 .navbar-toggler-icon {
@@ -92,11 +95,11 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.25rem 20px;
+    padding: 0.4rem 20px;   /* Reduced from 1.25rem */
 }
 
 .nav-brand {
-    font-size: 1.5rem;
+    font-size: 1.35rem;
     font-weight: 700;
     color: var(--text-white);
     letter-spacing: 0.5px;
@@ -116,10 +119,10 @@ body {
     text-decoration: none;
     color: var(--text-light);
     font-weight: 500;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     transition: color 0.2s ease;
     position: relative;
-    padding: 0.5rem 0;
+    padding: 0.35rem 0;
 }
 
 .nav-menu a:hover {
@@ -252,6 +255,7 @@ body {
     opacity: 0.3;
     animation: pulse 3s ease-in-out infinite;
 }
+
 
 @keyframes pulse {
     0%, 100% {
@@ -1715,4 +1719,333 @@ section {
         max-width: 250px;
         height: 320px;
     }
+}
+
+/* ===========================
+   Project Gallery
+=========================== */
+
+.project-gallery{
+    display:flex;
+    gap:12px;
+    margin:20px 0;
+    overflow-x:auto;
+    padding:8px 4px 10px;
+    scrollbar-width:thin;
+    scroll-behavior:smooth;
+}
+
+.project-gallery::-webkit-scrollbar{
+    height:7px;
+}
+
+.project-gallery::-webkit-scrollbar-thumb{
+    background:#00BCD4;
+    border-radius:20px;
+}
+
+.project-gallery img{
+    width:150px;
+    height:95px;
+    object-fit:cover;
+    border-radius:12px;
+    cursor:pointer;
+    flex-shrink:0;
+    border:2px solid rgba(255,255,255,.15);
+    transition:
+        transform .35s ease,
+        box-shadow .35s ease,
+        border-color .35s ease,
+        filter .35s ease;
+}
+
+.project-gallery img:hover{
+
+    transform:translateY(-6px) scale(1.08);
+
+    border-color:#00BCD4;
+
+    box-shadow:
+        0 12px 30px rgba(0,188,212,.45);
+
+    filter:brightness(1.08);
+
+}
+
+
+/* ===========================
+   Gallery Popup
+=========================== */
+
+.gallery-modal{
+
+    display:none;
+    position:fixed;
+    inset:0;
+    z-index:9999;
+
+    background:rgba(0,0,0,.92);
+
+    justify-content:center;
+    align-items:center;
+
+    opacity:0;
+    transition:opacity .35s ease;
+
+}
+
+.gallery-modal.show{
+
+    display:flex;
+    opacity:1;
+
+}
+
+.gallery-modal img{
+
+    max-width:88%;
+    max-height:88vh;
+
+    border-radius:14px;
+
+    transform:scale(.85);
+
+    transition:
+        transform .35s ease,
+        opacity .25s ease;
+
+    box-shadow:
+        0 20px 45px rgba(0,0,0,.5);
+
+}
+
+.gallery-modal.show img{
+
+    transform:scale(1);
+
+}
+
+/* Close */
+
+.gallery-modal .close{
+
+    position:absolute;
+    top:20px;
+    right:35px;
+
+    color:white;
+    font-size:48px;
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.gallery-modal .close:hover{
+
+    transform:rotate(90deg);
+
+    color:#00BCD4;
+
+}
+
+/* Navigation */
+
+.gallery-modal .prev,
+.gallery-modal .next{
+
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+
+    width:60px;
+    height:60px;
+
+    border:none;
+    border-radius:50%;
+
+    background:rgba(255,255,255,.12);
+    backdrop-filter:blur(8px);
+
+    color:white;
+    font-size:28px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.gallery-modal .prev{
+
+    left:30px;
+
+}
+
+.gallery-modal .next{
+
+    right:30px;
+
+}
+
+.gallery-modal .prev:hover,
+.gallery-modal .next:hover{
+
+    background:#00BCD4;
+
+    transform:translateY(-50%) scale(1.12);
+
+    box-shadow:0 0 25px rgba(0,188,212,.6);
+
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+.project-gallery img{
+
+    width:120px;
+    height:80px;
+
+}
+
+.gallery-modal img{
+    max-width:88%;
+    max-height:88vh;
+    border-radius:14px;
+
+    opacity:1;
+    transform:scale(1);
+
+    transition:
+        opacity .25s ease,
+        transform .25s ease;
+
+    box-shadow:0 20px 45px rgba(0,0,0,.5);
+}
+.gallery-modal .prev,
+.gallery-modal .next{
+
+    width:45px;
+    height:45px;
+    font-size:22px;
+
+}
+
+.gallery-modal .close{
+
+    font-size:38px;
+    right:20px;
+
+}
+
+}
+
+.hero-subtitle {
+    min-height: 45px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--accent-color);
+    display: flex;
+    align-items: center;
+}
+
+
+/* Name Typing Animation */
+
+.hero-title .highlight {
+    color: var(--accent-color);
+}
+
+
+.typing-name {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    vertical-align: bottom;
+
+    border-right: 3px solid var(--accent-color);
+
+    width: 0;
+
+    animation:
+        typing 3s steps(17, end) forwards,
+        blinkCursor 0.7s infinite;
+}
+
+
+/* Typing */
+
+@keyframes nameTyping {
+
+    from {
+        width:0;
+    }
+
+    to {
+        width:17ch;
+    }
+
+}
+
+
+/* Cursor */
+
+@keyframes cursorBlink {
+
+    0%,100% {
+
+        border-color: transparent;
+
+    }
+
+    50% {
+
+        border-color: var(--accent-color);
+
+    }
+
+}
+
+
+/* Hero smooth entrance */
+
+.hero-text {
+
+    animation: heroFade 1.2s ease forwards;
+
+}
+
+
+@keyframes heroFade {
+
+    from {
+
+        opacity:0;
+        transform:translateY(40px);
+
+    }
+
+
+    to {
+
+        opacity:1;
+        transform:translateY(0);
+
+    }
+
+}
+
+/* Typing Effect */
+@keyframes typing {
+
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 17ch;
+    }
+
 }

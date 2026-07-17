@@ -128,6 +128,87 @@ function updateActiveNav() {
         }
     });
 }
+// ===========================
+// Project Image Gallery
+// ===========================
+
+let galleryImages = [];
+let currentImageIndex = 0;
+
+function openGallery(images, index) {
+    galleryImages = images;
+    currentImageIndex = index;
+
+    const modal = document.getElementById("galleryModal");
+    const image = document.getElementById("galleryImage");
+
+    modal.style.display = "flex";
+
+	setTimeout(() => {
+		modal.classList.add("show");
+	},10);
+    image.src = galleryImages[currentImageIndex];
+}
+
+function changeImage(direction) {
+
+    currentImageIndex += direction;
+
+    if (currentImageIndex < 0) {
+        currentImageIndex = galleryImages.length - 1;
+    }
+
+    if (currentImageIndex >= galleryImages.length) {
+        currentImageIndex = 0;
+    }
+
+    const image = document.getElementById("galleryImage");
+
+    // Fade Out
+    image.style.opacity = "0";
+    image.style.transform = "scale(0.95)";
+
+    setTimeout(() => {
+
+        image.src = galleryImages[currentImageIndex];
+
+        // Fade In
+        image.style.opacity = "1";
+        image.style.transform = "scale(1)";
+
+    }, 180);
+}
+function closeGallery(){
+
+    const modal = document.getElementById("galleryModal");
+
+    modal.classList.remove("show");
+
+    setTimeout(()=>{
+        modal.style.display="none";
+    },300);
+
+}
+
+// Close gallery when clicking outside image
+window.addEventListener("click", function (e) {
+    const modal = document.getElementById("galleryModal");
+
+    if (e.target === modal) {
+        closeGallery();
+    }
+});
+
+// Keyboard navigation
+document.addEventListener("keydown", function (e) {
+    const modal = document.getElementById("galleryModal");
+
+    if (modal.style.display === "flex") {
+        if (e.key === "ArrowLeft") changeImage(-1);
+        if (e.key === "ArrowRight") changeImage(1);
+        if (e.key === "Escape") closeGallery();
+    }
+});
 
 window.addEventListener('scroll', updateActiveNav);
 window.addEventListener('load', updateActiveNav);
