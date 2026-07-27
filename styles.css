@@ -2049,3 +2049,193 @@ section {
     }
 
 }
+
+/* Certifications Grid */
+
+.certifications{
+    padding:80px 0;
+}
+
+
+.section-description{
+    color:#9ca3af;
+    max-width:700px;
+    margin:auto;
+}
+
+
+
+/* Certificate Card */
+
+.certificate-card{
+
+    background:#11162f;
+    border:1px solid #1d4263;
+    border-radius:12px;
+    padding:25px;
+    height:100%;
+    transition:0.3s ease;
+
+}
+
+
+
+.certificate-card:hover{
+
+    transform:translateY(-8px);
+    border-color:#00c6d7;
+    box-shadow:0 15px 35px rgba(0,198,215,0.15);
+
+}
+
+
+
+
+/* Icon */
+
+.certificate-icon{
+
+    width:50px;
+    height:50px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:#092b43;
+    color:#00c6d7;
+
+    border-radius:10px;
+
+    font-size:22px;
+
+    margin-bottom:20px;
+
+}
+
+
+
+/* Category */
+
+.certificate-category{
+
+    display:inline-block;
+
+    background:#102f48;
+
+    color:#00c6d7;
+
+    padding:5px 12px;
+
+    border-radius:20px;
+
+    font-size:12px;
+
+    font-weight:600;
+
+    margin-bottom:15px;
+
+}
+
+
+
+/* Title */
+
+.certificate-content h4{
+
+    color:white;
+
+    font-size:20px;
+
+    font-weight:700;
+
+    margin-bottom:10px;
+
+}
+
+
+
+/* Provider */
+
+.certificate-provider{
+
+    color:#00c6d7;
+
+    font-weight:600;
+
+    margin-bottom:5px;
+
+}
+
+
+
+/* Year */
+
+.certificate-year{
+
+    display:block;
+
+    color:#8b95b5;
+
+    font-size:13px;
+
+    margin-bottom:15px;
+
+}
+
+
+
+/* Description */
+
+.certificate-description{
+
+    color:#b8bfd8;
+
+    font-size:14px;
+    line-height:1.7;
+
+}
+
+
+
+/* Skills */
+
+.certificate-skills{
+
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-top:18px;
+
+}
+
+
+.certificate-skills span{
+
+    background:#10263d;
+    border:1px solid #164d70;
+    color:#c8d4e8;
+    padding:6px 10px;
+    border-radius:5px;
+    font-size:12px;
+
+}
+
+
+
+/* Button */
+
+.certificate-card .btn{
+    border-color:#00c6d7;
+    color:#00c6d7;
+
+}
+
+
+
+.certificate-card .btn:hover{
+
+    background:#00c6d7;
+    color:#11162f;
+
+}
