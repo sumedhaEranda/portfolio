@@ -15,6 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const mobileBrand = document.querySelector(".mobile-brand");
 
 
+
     /* =====================================================
        RESPONSIVE SIDEBAR
        ===================================================== */
@@ -212,7 +213,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     const savedTheme = localStorage.getItem("portfolio-theme");
-    applyTheme(savedTheme === "dark" ? "dark" : "light");
+    applyTheme(savedTheme === "light" ? "light" : "dark");
 
     if (themeToggle) {
         themeToggle.addEventListener("click", () => {
