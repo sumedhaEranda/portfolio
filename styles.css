@@ -34,13 +34,13 @@ body{font-family:'Inter',Arial,sans-serif!important;color:var(--text)!important;
 .about,.experience,.projects,.skills,.certifications,.education,.contact{background:#fff!important}
 .about,.experience,.projects,.skills,.certifications,.education{border-top:1px solid var(--line);padding:60px 0!important}
 .section-title{font-size:29px!important;line-height:1.2!important;font-weight:800!important;margin-bottom:30px!important;padding-left:13px;border-left:4px solid var(--blue);letter-spacing:-.5px}
-.about-text,.experience-duties,.project-details,.project-overview,.project-outcome,.section-description{color:#475467!important;font-size:13px;line-height:1.75}
+.about-text,.experience-duties,.project-details,.project-overview,.project-outcome,.section-description{color:#475467!important;font-size:17px;line-height:1.75}
 .summary-highlights{border-left:3px solid var(--blue);padding-left:20px}.highlights-title{font-size:17px!important}.highlights-list li{font-size:13px!important;color:#475467}
-.experience-item{margin-bottom:38px}.experience-header{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}.experience-title{font-size:20px!important;font-weight:800!important}.experience-company{font-size:14px!important;color:var(--blue)!important}.experience-date{margin-left:auto;color:#667085;font-size:12px}
+.experience-item{margin-bottom:38px}.experience-header{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}.experience-title{font-size:20px!important;font-weight:800!important}.experience-company{font-size:14px!important;color:var(--blue)!important}.experience-date{margin-left:auto;color:#667085;font-size:15px}
 .project-card,.project-card-large,.skill-category,.certificate-card,.education-item,.contact-item{border-radius:7px!important}
 .project-card,.project-card-large{border:1px solid var(--line)!important;box-shadow:0 4px 16px rgba(16,24,40,.035)!important;background:#fff!important}
 .project-card-large{padding:25px!important;height:100%}.project-card{padding:18px 20px!important;margin:10px 0!important}
-.project-name{font-size:16px!important;font-weight:800!important;color:#101828!important}.project-overview{font-size:13px!important}.project-features-title{font-size:12px!important;font-weight:800!important}
+.project-name{font-size:17px!important;font-weight:800!important;color:#101828!important}.project-overview{font-size:13px!important}.project-features-title{font-size:12px!important;font-weight:800!important}
 .tech-stack{display:flex;flex-wrap:wrap;gap:5px;margin:9px 0}.tech-tag{background:#eef4ff!important;border:1px solid #d9e5ff!important;color:var(--blue)!important;border-radius:4px!important;padding:3px 7px!important;font-size:10px!important;font-weight:700!important}
 .skills{padding-top:60px!important}.skill-category{border:1px solid var(--line)!important;background:#fff!important;padding:22px!important}.skill-category-title{font-size:16px!important}.skill-tag{font-size:11px!important}
 .contact{padding:60px 0!important}.contact-cta{background:var(--blue)!important;border-radius:9px;padding:45px!important;color:#fff}.contact-cta h3{font-size:28px!important}.contact-cta p{font-size:13px!important}
@@ -330,7 +330,7 @@ body.dark{background:#101828!important;color:#f2f4f7!important}body.dark .hero,b
 .interview-card{position:relative!important;padding:22px!important;border:1px solid #d9dee7!important;border-radius:12px!important;background:#fff!important;box-shadow:0 5px 18px rgba(16,24,40,.06)!important;display:flex!important;flex-direction:column!important;height:100%!important;transition:border-color .2s ease,box-shadow .2s ease,transform .2s ease!important}
 .interview-card:hover{border-color:#b9c7df!important;box-shadow:0 10px 26px rgba(16,24,40,.10)!important;transform:translateY(-2px)}
 .project-meta{margin-bottom:7px}.project-meta span{display:inline-block;background:#eef4ff;color:#2864e8;border:1px solid #d9e5ff;border-radius:999px;padding:3px 8px;font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.04em}
-.interview-card .project-name{font-size:17px!important;line-height:1.35!important;margin:0 0 10px!important;color:#101828!important}
+.interview-card .project-name{font-size:18px!important;line-height:1.35!important;margin:0 0 10px!important;color:#101828!important}
 .interview-card .tech-stack{margin:0 0 11px!important;gap:5px!important}
 .interview-card .tech-tag{padding:3px 7px!important;font-size:9px!important;border-radius:4px!important}
 .interview-card .project-overview{font-size:12.5px!important;line-height:1.65!important;margin:0 0 10px!important;color:#475467!important}
